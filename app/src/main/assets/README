@@ -1,0 +1,46 @@
+Documentation:
+----------------------------------------
+service
+    |--- assets
+           |--- version.json
+    |--- res
+           |--- values
+                  |--- string.xml
+    |--- src
+           |--- constant.java
+           |--- DownloadService.java
+           |--- VersionUpdate.java
+    |--- README.txt
+
+-----------------------------------------
+
+Description:
+1.constant.java: constants like server path & storage path;
+  DownloadService.java: the intentService which accomplish the function by which the apk of latest version could be downloaded background;
+  VersionUpdate.java: Accomplishing the function , the application could check the current version and the latest version in the server and judge whether the application needs updating.
+
+2.string.xml: some string values defined.
+
+3.version.json: this file should be placed on the server, from which the application read the information of version and the download link.
+
+-----------------------------------------
+
+How to use:
+1.add a button to perform the update-check function.
+2.add this button to the onClickListener case;
+
+Declaration:
+VersionUpdate vp = new VersionUpdate();
+vp.versionCompare(this);(Add it to the onClickListener cases)
+
+------------------------------------------
+
+JSON file structure:
+{"versioncode":"11","versionname":"1.0","url":"http://oa.tmsf.com:5050/test/version.json","description":"original"}
+
+versioncode: an integer represent as the only version of the application which is invisible.
+versionname: a serial of integers represent as the version of the application which is visible.
+url: a string struct as an http link refers to the link where the application of the latest version is.
+description: a serial of characters which describe the differences in the latest version.
+
+------------------------------------------
